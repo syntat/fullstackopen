@@ -13,15 +13,16 @@
 		browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
 		activate server
 		server->>browser: CSS document
+		deactivate server
 		browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
 		activate server
 		server->>browser: JS file main.js
-
+		deactivate server
 		Note right of browser: The javascript file main.js is executed immediately by the browser, which in turn queries the json data
 
 		browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
 		activate server
 		server->>browser: [{content: "danggit wutang", date: "2024-04-23T03:51:31.029Z"},...]
-
+		deactivate server
 		Note right of browser: The browser executes the callback function that renders the json data that was fetched
 ```	
